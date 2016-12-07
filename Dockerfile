@@ -56,12 +56,9 @@ RUN set -x; \
 # Install Odoo
 ENV ODOO_VERSION 9.0
 RUN set -x; \
-        mkdir -p /opt/local/odoo/odoo \
-        && cd /opt/local/odoo/odoo \
-        && git init \
-        && git remote add origin https://github.com/Odoo/odoo.git \
-        && git fetch \
-        && git checkout -t origin/${ODOO_VERSION} \
+        mkdir -p /opt/local/odoo \
+        && cd /opt/local/odoo \
+        && git clone -b ${ODOO_VERSION} --single-branch --depth 1 https://github.com/Odoo/odoo.git odoo \
         && ln -s /opt/local/odoo/odoo/openerp-server /usr/bin/openerp-server \
         && ln -s /opt/local/odoo/odoo/openerp-gevent /usr/bin/openerp-gevent \
         && useradd odoo -d /opt/local/odoo -p odoo \
