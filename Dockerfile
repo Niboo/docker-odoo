@@ -45,6 +45,7 @@ RUN set -x; \
             python-werkzeug \
             python-xlwt \
             python-yaml \
+            python-unicodecsv \
         && curl -o wkhtmltox.deb -SL http://nightly.odoo.com/extra/wkhtmltox-0.12.1.2_linux-jessie-amd64.deb \
         && echo '40e8b906de658a2221b15e4e8cd82565a47d7ee8 wkhtmltox.deb' | sha1sum -c - \
         && dpkg --force-depends -i wkhtmltox.deb \
@@ -54,11 +55,11 @@ RUN set -x; \
         && pip install psycogreen==1.0
 
 # Install Odoo
-ENV ODOO_VERSION 9.0
+ENV ODOO_TAG "DOCKER"
 RUN set -x; \
         mkdir -p /opt/local/odoo \
         && cd /opt/local/odoo \
-        && git clone -b ${ODOO_VERSION} --single-branch --depth 1 https://github.com/Odoo/odoo.git odoo \
+        && git clone -b ${ODOO_TAG} --single-branch --depth 1 https://github.com/Niboo/odoo.git odoo \
         && ln -s /opt/local/odoo/odoo/openerp-server /usr/bin/openerp-server \
         && ln -s /opt/local/odoo/odoo/openerp-gevent /usr/bin/openerp-gevent \
         && useradd odoo -d /opt/local/odoo -p odoo \
