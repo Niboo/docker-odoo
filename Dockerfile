@@ -17,12 +17,15 @@ RUN set -x; \
             ssh-client \
             postgresql-client \
             python-babel \
+            python-greenlet \
+            python-markupsafe \
             python-dateutil \
             python-decorator \
             python-docutils \
             python-feedparser \
             python-imaging \
             python-jinja2 \
+            python-jcconv \
             python-ldap \
             python-libxslt1 \
             python-lxml \
@@ -30,21 +33,28 @@ RUN set -x; \
             python-mock \
             python-openid \
             python-passlib \
+            python-ofxparse \
             python-psutil \
             python-psycopg2 \
             python-pychart \
             python-pydot \
             python-pyparsing \
             python-pypdf \
+            python-qrcode \
+            python-usb \
+            python-serial \
             python-reportlab \
             python-requests \
-            python-suds \
             python-tz \
             python-vatnumber \
+            python-suds-jurko \
             python-vobject \
             python-werkzeug \
             python-xlwt \
             python-yaml \
+            python-six \
+            python-xlsxwriter \
+            python-wsgiref \
             python-unicodecsv \
         && curl -o wkhtmltox.deb -SL http://nightly.odoo.com/extra/wkhtmltox-0.12.1.2_linux-jessie-amd64.deb \
         && echo '40e8b906de658a2221b15e4e8cd82565a47d7ee8 wkhtmltox.deb' | sha1sum -c - \
