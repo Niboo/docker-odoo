@@ -47,7 +47,6 @@ RUN set -x; \
             python-requests \
             python-tz \
             python-vatnumber \
-            python-suds-jurko \
             python-vobject \
             python-werkzeug \
             python-xlwt \
@@ -63,6 +62,7 @@ RUN set -x; \
         && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false -o APT::AutoRemove::SuggestsImportant=false npm \
         && rm -rf /var/lib/apt/lists/* wkhtmltox.deb \
         && pip install psycogreen==1.0
+        && pip install suds-jurko
 
 # Install Odoo
 ENV ODOO_TAG "v10.0.1.0"
