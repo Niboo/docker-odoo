@@ -60,8 +60,7 @@ RUN set -x; \
         mkdir -p /opt/local/odoo \
         && cd /opt/local/odoo \
         && git clone -b ${ODOO_TAG} --single-branch --depth 1 https://github.com/Niboo/odoo.git odoo \
-        && ln -s /opt/local/odoo/odoo/openerp-server /usr/bin/openerp-server \
-        && ln -s /opt/local/odoo/odoo/openerp-gevent /usr/bin/openerp-gevent \
+        && ln -s /opt/local/odoo/odoo/odoo-bin /usr/bin/odoo \
         && useradd odoo -d /opt/local/odoo -p odoo \
         && chown -R odoo /opt/local/odoo
 
