@@ -25,7 +25,6 @@ RUN set -x; \
             python-feedparser \
             python-imaging \
             python-jinja2 \
-            python-jcconv \
             python-ldap \
             python-libxslt1 \
             python-lxml \
