@@ -55,7 +55,7 @@ RUN set -x; \
         && pip install psycogreen==1.0
 
 # Install Odoo
-ENV ODOO_TAG "v9.0.1.0"
+ENV ODOO_TAG "v10.0.1.0"
 RUN set -x; \
         mkdir -p /opt/local/odoo \
         && cd /opt/local/odoo \
