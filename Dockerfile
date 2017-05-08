@@ -59,7 +59,7 @@ ENV ODOO_ORIGINAL_TAG "v9.0.1.0"
 RUN set -x; \
         mkdir -p /opt/local/odoo \
         && cd /opt/local/odoo \
-        && git clone -b ${ODOO_ORIGINAL_TAG} --single-branch --depth 1 https://github.com/Niboo/odoo.git odoo \
+        && git clone -b ${ODOO_ORIGINAL_TAG} --single-branch --depth 1 https://gitlab.com/Niboo/odoo.git odoo \
         && ln -s /opt/local/odoo/odoo/openerp-server /usr/bin/openerp-server \
         && ln -s /opt/local/odoo/odoo/openerp-gevent /usr/bin/openerp-gevent \
         && useradd odoo -d /opt/local/odoo -p odoo \
