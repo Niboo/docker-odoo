@@ -8,15 +8,15 @@ set -e
 : ${PORT:=${DB_PORT_5432_TCP_PORT:=5432}}
 : ${USER:=${DB_ENV_POSTGRES_USER:=${POSTGRES_USER:='odoo'}}}
 : ${PASSWORD:=${DB_ENV_POSTGRES_PASSWORD:=${POSTGRES_PASSWORD:='odoo'}}}
-: ${DB_FILTER:=${DB_FILTER:='.*'}}
-: ${WORKERS:=${ODOO_WORKERS:='2'}}
-: ${LIMIT_MEMORY_HARD:=${ODOO_LIMIT_MEMORY_HARD:='2684354560'}}
-: ${LIMIT_MEMORY_SOFT:=${ODOO_LIMIT_MEMORY_SOFT:='2147483648'}}
-: ${LIMIT_REQUEST:=${ODOO_LIMIT_REQUEST:='8192'}}
-: ${LIMIT_TIME_CPU:=${ODOO_LIMIT_TIME_CPU:='180'}}
-: ${LIMIT_TIME_REAL:=${ODOO_LIMIT_TIME_CPU:='300'}}
-: ${XMLRPC_PORT:=${ODOO_XMLRPC_PORT:='8069'}}
-: ${LONGPOLLING_PORT:=${ODOO_LONGPOLLING_PORT:='8071'}}
+: ${DB_FILTER}
+: ${WORKERS}
+: ${LIMIT_MEMORY_HARD}
+: ${LIMIT_MEMORY_SOFT}
+: ${LIMIT_REQUEST}
+: ${LIMIT_TIME_CPU}
+: ${LIMIT_TIME_REAL}
+: ${XMLRPC_PORT}
+: ${LONGPOLLING_PORT}
 
 ODOO_ARGS=()
 function check_param() {
@@ -34,7 +34,7 @@ check_param "db_port" "$PORT"
 check_param "db_user" "$USER"
 check_param "db_password" "$PASSWORD"
 check_param "db-filter" "$DB_FILTER"
-check_param "workers" "$DB_FILTER"
+check_param "workers" "$WORKERS"
 check_param "limit-memory-hard" "$LIMIT_MEMORY_HARD"
 check_param "limit-memory-soft" "$LIMIT_MEMORY_SOFT"
 check_param "limit-request" "$LIMIT_REQUEST"
