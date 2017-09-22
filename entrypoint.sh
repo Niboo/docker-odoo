@@ -15,6 +15,8 @@ set -e
 : ${LIMIT_REQUEST:=${ODOO_LIMIT_REQUEST:='8192'}}
 : ${LIMIT_TIME_CPU:=${ODOO_LIMIT_TIME_CPU:='180'}}
 : ${LIMIT_TIME_REAL:=${ODOO_LIMIT_TIME_CPU:='300'}}
+: ${XMLRPC_PORT:=${ODOO_XMLRPC_PORT:='8069'}}
+: ${LONGPOLLING_PORT:=${ODOO_LONGPOLLING_PORT:='8071'}}
 
 ODOO_ARGS=()
 function check_param() {
@@ -31,13 +33,15 @@ check_param "db_host" "$HOST"
 check_param "db_port" "$PORT"
 check_param "db_user" "$USER"
 check_param "db_password" "$PASSWORD"
-check_param "dbfilter" "$DB_FILTER"
+check_param "db-filter" "$DB_FILTER"
 check_param "workers" "$DB_FILTER"
-check_param "limit_memory_hard" "$LIMIT_MEMORY_HARD"
-check_param "limit_memory_soft" "$LIMIT_MEMORY_SOFT"
-check_param "limit_request" "$LIMIT_REQUEST"
-check_param "limit_time_cpu" "$LIMIT_TIME_CPU"
-check_param "limit_time_real" "$LIMIT_TIME_REAL"
+check_param "limit-memory-hard" "$LIMIT_MEMORY_HARD"
+check_param "limit-memory-soft" "$LIMIT_MEMORY_SOFT"
+check_param "limit-request" "$LIMIT_REQUEST"
+check_param "limit-time-cpu" "$LIMIT_TIME_CPU"
+check_param "limit-time-real" "$LIMIT_TIME_REAL"
+check_param "xmlrpc-port" "$XMLRPC_PORT"
+check_param "longpolling-port" "$LONGPOLLING_PORT"
 
 case "$1" in
     -- | odoo)
