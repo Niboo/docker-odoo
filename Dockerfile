@@ -60,7 +60,7 @@ RUN set -x; \
         && tar xvf wkhtmltox.tar.xz \
         && cp wkhtmltox/lib/* /usr/local/lib/ \
         && cp wkhtmltox/bin/* /usr/local/bin/ \
-        && cp -r wkhtmltox/share/man/man1 /usr/local/share/man/
+        && cp -r wkhtmltox/share/man/man1 /usr/local/share/man/ \
         && pip3 install psycogreen==1.0 \
         && pip3 install suds-jurko \
         && pip3 install num2words
