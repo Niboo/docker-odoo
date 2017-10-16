@@ -61,10 +61,9 @@ RUN set -x; \
         && cp wkhtmltox/lib/* /usr/local/lib/ \
         && cp wkhtmltox/bin/* /usr/local/bin/ \
         && cp -r wkhtmltox/share/man/man1 /usr/local/share/man/
-#        && pip install psycogreen==1.0 \
-#        && pip install suds-jurko \
-#        && pip install jcconv \
-#        && pip install num2words
+        && pip3 install psycogreen==1.0 \
+        && pip3 install suds-jurko \
+        && pip3 install num2words
 
 # Install Odoo
 ENV ODOO_ORIGINAL_TAG "v11.0.1.0"
