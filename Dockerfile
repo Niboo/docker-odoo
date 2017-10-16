@@ -54,6 +54,8 @@ RUN set -x; \
             python-xlsxwriter \
             python-wsgiref \
             python-unicodecsv \
+            python-pypdf2 \
+            python-html2text \
         && curl -o wkhtmltox.deb -SL http://nightly.odoo.com/extra/wkhtmltox-0.12.1.2_linux-jessie-amd64.deb \
         && echo '40e8b906de658a2221b15e4e8cd82565a47d7ee8 wkhtmltox.deb' | sha1sum -c - \
         && dpkg --force-depends -i wkhtmltox.deb \
@@ -62,7 +64,8 @@ RUN set -x; \
         && rm -rf /var/lib/apt/lists/* wkhtmltox.deb \
         && pip install psycogreen==1.0 \
         && pip install suds-jurko \
-        && pip install jcconv
+        && pip install jcconv \
+        && pip install num2words
 
 # Install Odoo
 ENV ODOO_ORIGINAL_TAG "v11.0.1.0"
