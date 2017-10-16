@@ -65,7 +65,7 @@ RUN set -x; \
         && pip install jcconv
 
 # Install Odoo
-ENV ODOO_ORIGINAL_TAG "v10.0.1.0"
+ENV ODOO_ORIGINAL_TAG "v11.0.1.0"
 RUN set -x; \
         mkdir -p /opt/local/odoo \
         && cd /opt/local/odoo \
@@ -87,4 +87,4 @@ ENV ODOO_RC /etc/odoo/odoo.conf
 USER odoo
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["odoo"]
+CMD ["/usr/bin/python /opt/local/odoo/odoo/odoo-bin"]
