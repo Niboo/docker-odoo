@@ -26,13 +26,13 @@ RUN set -x; \
 
 # Install Odoo
 ENV ODOO_ORIGINAL_TAG "v11.0.1.0"
-RUN set -x; \
-        mkdir -p /opt/local/odoo \
-        && cd /opt/local/odoo \
-        && git clone -b ${ODOO_ORIGINAL_TAG} --single-branch --depth 1 https://github.com/Niboo/odoo.git odoo \
-        && ln -s /opt/local/odoo/odoo/odoo-bin /usr/bin/odoo \
-        && useradd odoo -d /opt/local/odoo -p odoo \
-        && chown -R odoo /opt/local/odoo
+#RUN set -x; \
+#        mkdir -p /opt/local/odoo \
+#        && cd /opt/local/odoo \
+#        && git clone -b ${ODOO_ORIGINAL_TAG} --single-branch --depth 1 https://github.com/Niboo/odoo.git odoo \
+#        && ln -s /opt/local/odoo/odoo/odoo-bin /usr/bin/odoo \
+#        && useradd odoo -d /opt/local/odoo -p odoo \
+#        && chown -R odoo /opt/local/odoo
 
 # Copy entrypoint script and Odoo configuration file
 COPY ./entrypoint.sh /
