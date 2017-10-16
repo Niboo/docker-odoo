@@ -16,6 +16,7 @@ RUN set -x; \
             git \
             ssh-client \
             postgresql-client \
+            postgresql-server-dev-all \
             python-babel \
             python-dateutil \
             python-decorator \
