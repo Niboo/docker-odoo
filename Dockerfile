@@ -60,7 +60,7 @@ RUN set -x; \
         && tar xvf wkhtmltox.tar.xz \
         && cp wkhtmltox/lib/* /usr/local/lib/ \
         && cp wkhtmltox/bin/* /usr/local/bin/ \
-        && cp -r wkhtmltox/share/man/man1 /usr/local/share/man/
+        && cp -r wkhtmltox/share/man/man1 /usr/local/share/man/ \
         && pip install psycogreen==1.0 \
         && pip install suds-jurko \
         && pip install jcconv \
