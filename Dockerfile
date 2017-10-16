@@ -8,60 +8,17 @@ RUN set -x; \
             ca-certificates \
             curl \
             node-less \
-            python-gevent \
-            python-pip \
-            python-pyinotify \
-            python-renderpm \
-            python-support \
-            git \
-            ssh-client \
-            postgresql-client \
-            python-babel \
-            python-greenlet \
-            python-markupsafe \
-            python-dateutil \
-            python-decorator \
-            python-docutils \
-            python-feedparser \
-            python-imaging \
-            python-jinja2 \
-            python-ldap \
-            python-libxslt1 \
-            python-lxml \
-            python-mako \
-            python-mock \
-            python-openid \
-            python-passlib \
-            python-ofxparse \
-            python-psutil \
-            python-psycopg2 \
-            python-pychart \
-            python-pydot \
-            python-pyparsing \
-            python-pypdf \
-            python-qrcode \
-            python-usb \
-            python-serial \
-            python-reportlab \
-            python-requests \
-            python-tz \
-            python-vatnumber \
-            python-vobject \
-            python-werkzeug \
-            python-xlwt \
-            python-yaml \
-            python-six \
-            python-xlsxwriter \
-            python-wsgiref \
-            python-unicodecsv \
-            python-pypdf2 \
-            python-html2text \
-        && curl -o wkhtmltox.deb -SL http://nightly.odoo.com/extra/wkhtmltox-0.12.1.2_linux-jessie-amd64.deb \
-        && echo '40e8b906de658a2221b15e4e8cd82565a47d7ee8 wkhtmltox.deb' | sha1sum -c - \
-        && dpkg --force-depends -i wkhtmltox.deb \
-        && apt-get -y install -f --no-install-recommends \
-        && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false -o APT::AutoRemove::SuggestsImportant=false npm \
-        && rm -rf /var/lib/apt/lists/* wkhtmltox.deb \
+            python3-pip \
+            python3-setuptools \
+            python3-renderpm \
+            libssl1.0-dev \
+            xz-utils \
+        && curl -o wkhtmltox.tar.xz -SL https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz \
+        && echo '3f923f425d345940089e44c1466f6408b9619562 wkhtmltox.tar.xz' | sha1sum -c - \
+        && tar xvf wkhtmltox.tar.xz \
+        && cp wkhtmltox/lib/* /usr/local/lib/ \
+        && cp wkhtmltox/bin/* /usr/local/bin/ \
+        && cp -r wkhtmltox/share/man/man1 /usr/local/share/man/ \
         && pip install psycogreen==1.0 \
         && pip install suds-jurko \
         && pip install jcconv \
@@ -90,4 +47,4 @@ ENV ODOO_RC /etc/odoo/odoo.conf
 USER odoo
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/usr/bin/python /opt/local/odoo/odoo/odoo-bin"]
+CMD ["odoo"]
