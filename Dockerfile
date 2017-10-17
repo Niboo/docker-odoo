@@ -12,45 +12,6 @@ RUN set -x; \
             postgresql-client \
             python3-pip \
             python3-setuptools \
-            python3-renderpm \
-            python3-babel \
-            python3-bs4 \
-            python3-chardet \
-            python3-dateutil \
-            python3-decorator \
-            python3-docutils \
-            python3-feedparser \
-            python3-gevent \
-            python3-greenlet \
-            python3-html2text \
-            python3-jinja2 \
-            python3-lxml \
-            python3-mako \
-            python3-markupsafe \
-            python3-mock \
-            python3-ofxparse \
-            python3-passlib \
-            python3-pbr \
-            python3-pil \
-            python3-psutil \
-            python3-psycopg2 \
-            python3-pydot \
-            python3-pyparsing \
-            python3-pypdf2 \
-            python3-reportlab \
-            python3-reportlab-accel \
-            python3-requests \
-            python3-roman \
-            python3-serial \
-            python3-six \
-            python3-stdnum \
-            python3-suds \
-            python3-tz \
-            python3-urllib3 \
-            python3-usb \
-            python3-vatnumber \
-            python3-xlsxwriter \
-            python3-yaml \
             libssl1.0-dev \
             xz-utils \
             git \
@@ -60,10 +21,48 @@ RUN set -x; \
         && cp wkhtmltox/lib/* /usr/local/lib/ \
         && cp wkhtmltox/bin/* /usr/local/bin/ \
         && cp -r wkhtmltox/share/man/man1 /usr/local/share/man/ \
-        && pip3 install psycogreen==1.0 \
-        && pip3 install suds-jurko \
-        && pip3 install num2words \
-        && pip3 install werkzeug==0.11.11
+        && pip3 install werkzeug==0.11.11 \
+        Babel==2.3.4 \
+        decorator==4.0.10 \
+        docutils==0.12 \
+        ebaysdk==2.1.4 \
+        feedparser==5.2.1 \
+        gevent==1.1.2 \
+        greenlet==0.4.10 \
+        html2text==2016.9.19 \
+        Jinja2==2.8 \
+        lxml==3.5.0 \
+        Mako==1.0.4 \
+        MarkupSafe==0.23 \
+        mock==2.0.0 \
+        num2words==0.5.4 \
+        ofxparse==0.16 \
+        passlib==1.6.5 \
+        Pillow==3.4.1 \
+        psutil==4.3.1 \
+        psycogreen==1.0 \
+        psycopg2==2.7.1 \
+        pydot==1.2.3 \
+        pyldap==2.4.28 \
+        pyparsing==2.1.10 \
+        PyPDF2==1.26.0 \
+        pyserial==3.1.1 \
+        python-dateutil==2.5.3 \
+        python-openid==2.2.5 \
+        pytz==2016.7 \
+        pyusb==1.0.0 \
+        PyYAML==3.12 \
+        qrcode==5.3 \
+        reportlab==3.3.0 \
+        requests==2.11.1 \
+        six==1.10.0 \
+        suds-jurko==0.6 \
+        vatnumber==1.2 \
+        vobject==0.9.3 \
+        Werkzeug==0.11.11 \
+        XlsxWriter==0.9.3 \
+        xlwt==1.3 \
+        xlrd==1.0.0
 
 # Install Odoo
 ENV ODOO_ORIGINAL_TAG "v11.0.1.0"
