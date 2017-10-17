@@ -12,6 +12,12 @@ RUN set -x; \
             postgresql-client \
             python3-pip \
             python3-setuptools \
+            python3-dev \
+            build-essential \
+            libffi-dev \
+            libsasl2-dev \
+            libldap2-dev \
+            python3-lxml \
             libssl1.0-dev \
             xz-utils \
             git \
@@ -25,13 +31,11 @@ RUN set -x; \
         Babel==2.3.4 \
         decorator==4.0.10 \
         docutils==0.12 \
-        ebaysdk==2.1.4 \
         feedparser==5.2.1 \
         gevent==1.1.2 \
         greenlet==0.4.10 \
         html2text==2016.9.19 \
         Jinja2==2.8 \
-        lxml==3.5.0 \
         Mako==1.0.4 \
         MarkupSafe==0.23 \
         mock==2.0.0 \
