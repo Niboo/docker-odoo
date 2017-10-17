@@ -63,7 +63,7 @@ RUN set -x; \
         && pip3 install psycogreen==1.0 \
         && pip3 install suds-jurko \
         && pip3 install num2words \
-        && pip3 install werkzeug=0.11.11
+        && pip3 install werkzeug==0.11.11
 
 # Install Odoo
 ENV ODOO_ORIGINAL_TAG "v11.0.1.0"
