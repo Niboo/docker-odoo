@@ -10,6 +10,8 @@ set -e
 : ${PASSWORD:=${DB_ENV_POSTGRES_PASSWORD:=${POSTGRES_PASSWORD:='odoo'}}}
 : ${DB_FILTER}
 : ${WORKERS}
+: ${$MAXCRONTHREADS}
+: ${$DATABASE}
 : ${LIMIT_MEMORY_HARD}
 : ${LIMIT_MEMORY_SOFT}
 : ${LIMIT_REQUEST}
@@ -35,6 +37,8 @@ check_param "db_user" "$USER"
 check_param "db_password" "$PASSWORD"
 check_param "db-filter" "$DB_FILTER"
 check_param "workers" "$WORKERS"
+check_param "max-cron-threads" "$MAXCRONTHREADS"
+check_param "database" "$DATABASE"
 check_param "limit-memory-hard" "$LIMIT_MEMORY_HARD"
 check_param "limit-memory-soft" "$LIMIT_MEMORY_SOFT"
 check_param "limit-request" "$LIMIT_REQUEST"
