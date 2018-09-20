@@ -19,6 +19,7 @@ set -e
 : ${LIMIT_TIME_REAL}
 : ${XMLRPC_PORT}
 : ${LONGPOLLING_PORT}
+: ${LOAD}
 
 ODOO_ARGS=()
 function check_param() {
@@ -46,6 +47,7 @@ check_param "limit-time-cpu" "$LIMIT_TIME_CPU"
 check_param "limit-time-real" "$LIMIT_TIME_REAL"
 check_param "xmlrpc-port" "$XMLRPC_PORT"
 check_param "longpolling-port" "$LONGPOLLING_PORT"
+check_param "load" "$LOAD"
 
 case "$1" in
     -- | odoo)
