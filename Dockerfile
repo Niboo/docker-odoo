@@ -24,7 +24,7 @@ RUN set -x; \
         && cp -r wkhtmltox/share/man/man1 /usr/local/share/man/
 
 # Install Odoo
-ENV ODOO_ORIGINAL_TAG "12.0"
+ENV ODOO_ORIGINAL_TAG "v12.0.1.0"
 RUN set -x; \
         mkdir -p /opt/local/odoo \
         && cd /opt/local/odoo \
