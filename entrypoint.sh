@@ -21,17 +21,19 @@ set -e
 : ${LONGPOLLING_PORT}
 : ${LOAD}
 
-ODOO_ARGS=()
-function check_param() {
+DB_ARGS=()
+function check_config() {
     param="$1"
     value="$2"
-    # Check that there is a value for the parameter before passing it to launch odoo
-    if ! [[ -z "$value" ]]; then
-        ODOO_ARGS+=("--${param}")
-        ODOO_ARGS+=("${value}")
-    fi;
+    if ! grep -q -E "^\s*\b${param}\b\s*=" "$ODOO_RC" ; then
+        DB_ARGS+=("--${param}")
+        DB_ARGS+=("${value}")
+   fi;
 }
-
+check_config "db_host" "$HOST"
+check_config "db_port" "$PORT"
+check_config "db_user" "$USER"
+check_config "db_password" "$PASSWORD"
 check_param "db_host" "$HOST"
 check_param "db_port" "$PORT"
 check_param "db_user" "$USER"
@@ -49,17 +51,19 @@ check_param "xmlrpc-port" "$XMLRPC_PORT"
 check_param "longpolling-port" "$LONGPOLLING_PORT"
 check_param "load" "$LOAD"
 
+
+
 case "$1" in
     -- | odoo)
         shift
         if [[ "$1" == "scaffold" ]] ; then
             exec odoo "$@"
         else
-            exec odoo "$@" "${ODOO_ARGS[@]}"
+            exec odoo "$@" "${DB_ARGS[@]}"
         fi
         ;;
     -*)
-        exec odoo "$@" "${ODOO_ARGS[@]}"
+        exec odoo "$@" "${DB_ARGS[@]}"
         ;;
     *)
         exec "$@"
