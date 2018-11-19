@@ -22,7 +22,7 @@ set -e
 : ${LOAD}
 
 DB_ARGS=()
-function check_config() {
+function check_param() {
     param="$1"
     value="$2"
     if ! grep -q -E "^\s*\b${param}\b\s*=" "$ODOO_RC" ; then
@@ -30,10 +30,12 @@ function check_config() {
         DB_ARGS+=("${value}")
    fi;
 }
-check_config "db_host" "$HOST"
-check_config "db_port" "$PORT"
-check_config "db_user" "$USER"
-check_config "db_password" "$PASSWORD"
+
+
+check_param "db_host" "$HOST"
+check_param "db_port" "$PORT"
+check_param "db_user" "$USER"
+check_param "db_password" "$PASSWORD"
 check_param "db_host" "$HOST"
 check_param "db_port" "$PORT"
 check_param "db_user" "$USER"
