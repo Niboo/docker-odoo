@@ -17,10 +17,6 @@ RUN set -x; \
             python3-watchdog \
             python3-dateutil \
             python3.5-dev \
-            python3 python-dev python3-dev \
-            build-essential libssl-dev libffi-dev \
-            libxml2-dev libxslt1-dev zlib1g-dev \
-            python-pip\
             git \
         && curl -o wkhtmltox.tar.xz -SL https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz \
         && echo '3f923f425d345940089e44c1466f6408b9619562 wkhtmltox.tar.xz' | sha1sum -c - \
