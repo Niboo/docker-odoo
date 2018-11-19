@@ -24,7 +24,7 @@ RUN set -x; \
         && cp -r wkhtmltox/share/man/man1 /usr/local/share/man/
 
 # Install Odoo
-ENV ODOO_ORIGINAL_TAG "v12.0.1.0"
+ENV ODOO_ORIGINAL_TAG "v12.0.2.0"
 RUN set -x; \
         mkdir -p /opt/local/odoo \
         && cd /opt/local/odoo \
@@ -34,6 +34,7 @@ RUN set -x; \
         && chown -R odoo /opt/local/odoo
 
 # Copy entrypoint script and Odoo configuration file
+RUN pip3 install num2words xlwt
 COPY ./entrypoint.sh /
 
 # Expose Odoo services
