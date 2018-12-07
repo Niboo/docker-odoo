@@ -5,6 +5,7 @@ MAINTAINER Niboo SPRL <info@niboo.be>
 
 RUN set -x; \
         apt-get update \
+        && apt-get update --fix-missing \
         && apt-get install -y --no-install-recommends \
             ca-certificates \
             curl \
