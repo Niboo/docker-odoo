@@ -4,6 +4,7 @@ MAINTAINER Niboo SPRL <info@niboo.be>
 # Install some deps, lessc and less-plugin-clean-css, and wkhtmltopdf
 RUN set -x; \
         apt-get update \
+        && apt-get update --fix-missing \
         && apt-get install -y --no-install-recommends \
             ca-certificates \
             curl \
