@@ -57,11 +57,11 @@ case "$1" in
         if [[ "$1" == "scaffold" ]] ; then
             exec odoo "$@"
         else
-            exec odoo "$@" "${DB_ARGS[@]}"
+            exec odoo "$@" "${ODOO_ARGS[@]}"
         fi
         ;;
     -*)
-        exec odoo "$@" "${DB_ARGS[@]}"
+        exec odoo "$@" "${ODOO_ARGS[@]}"
         ;;
     *)
         exec "$@"
