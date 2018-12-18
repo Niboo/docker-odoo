@@ -25,17 +25,13 @@ DB_ARGS=()
 function check_param() {
     param="$1"
     value="$2"
-    if ! grep -q -E "^\s*\b${param}\b\s*=" "$ODOO_RC" ; then
-        DB_ARGS+=("--${param}")
-        DB_ARGS+=("${value}")
-   fi;
+    # Check that there is a value for the parameter before passing it to launch odoo
+    if ! [[ -z "$value" ]]; then
+        ODOO_ARGS+=("--${param}")
+        ODOO_ARGS+=("${value}")
+    fi;
 }
 
-
-check_param "db_host" "$HOST"
-check_param "db_port" "$PORT"
-check_param "db_user" "$USER"
-check_param "db_password" "$PASSWORD"
 check_param "db_host" "$HOST"
 check_param "db_port" "$PORT"
 check_param "db_user" "$USER"
