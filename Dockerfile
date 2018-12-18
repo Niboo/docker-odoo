@@ -19,6 +19,26 @@ RUN set -x; \
             python3-dateutil \
             python3-psutil \
             git \
+        && pip3 install openpyxl  \
+        && pip3 install --upgrade six \
+        && pip3 install PyPDF2 \
+        && pip3 install passlib \
+        && pip3 install babel \
+        && pip3 install werkzeug \
+        && pip3 install lxml \
+        && pip3 install decorator \
+        && pip3 install psycopg2 \
+        && pip3 install Pillow \
+        && pip3 install wheel \
+        && pip3 install requests \
+        && pip3 install jinja2 \
+        && pip3 install gevent \
+        && pip3 install reportlab \
+        && pip3 install html2text \
+        && pip3 install docutils \
+        && pip3 install libsass \
+        && pip3 install num2words \
+        && pip3 install xlwt \
         && curl -o wkhtmltox.tar.xz -SL https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz \
         && echo '3f923f425d345940089e44c1466f6408b9619562 wkhtmltox.tar.xz' | sha1sum -c - \
         && tar xvf wkhtmltox.tar.xz \
@@ -37,7 +57,6 @@ RUN set -x; \
         && chown -R odoo /opt/local/odoo
 
 # Copy entrypoint script and Odoo configuration file
-RUN pip3 install num2words xlwt
 COPY ./entrypoint.sh /
 
 # Expose Odoo services
