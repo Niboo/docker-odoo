@@ -51,16 +51,14 @@ COPY ./entrypoint.sh /
 
 RUN set -x; \
         mkdir -p /opt/local/odoo \
-        && mkdir -p /opt/local/odoo/.local/share \
         && useradd odoo -d /opt/local/odoo -p odoo \
+        && cd /opt/local/odoo \
+        && git clone -b ${ODOO_ORIGINAL_TAG} --single-branch --depth 1 https://github.com/Niboo/odoo.git odoo \
+        && ln -s /opt/local/odoo/odoo/odoo-bin /usr/bin/odoo \
         && chown -R odoo:odoo /opt/local/odoo
 
 # Set default user when running the container
 USER odoo
-
-RUN set -x; \
-        cd /opt/local/odoo \
-        && git clone -b ${ODOO_ORIGINAL_TAG} --single-branch --depth 1 https://github.com/Niboo/odoo.git odoo
 
 # Expose Odoo services
 EXPOSE 8069 8071
@@ -69,4 +67,4 @@ EXPOSE 8069 8071
 ENV ODOO_RC /etc/odoo/odoo.conf
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/opt/local/odoo/odoo/odoo-bin"]
+CMD ["odoo"]
