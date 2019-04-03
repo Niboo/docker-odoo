@@ -46,9 +46,6 @@ RUN set -x; \
 # Install Odoo
 ENV ODOO_ORIGINAL_TAG "v12.0.2.0"
 
-# Copy entrypoint script and Odoo configuration file
-COPY ./entrypoint.sh /
-
 RUN set -x; \
         mkdir -p /opt/local/odoo \
         && useradd odoo -d /opt/local/odoo -p odoo \
@@ -57,14 +54,17 @@ RUN set -x; \
         && ln -s /opt/local/odoo/odoo/odoo-bin /usr/bin/odoo \
         && chown -R odoo:odoo /opt/local/odoo
 
-# Set default user when running the container
-USER odoo
+# Copy entrypoint script and Odoo configuration file
+COPY ./entrypoint.sh /
 
 # Expose Odoo services
 EXPOSE 8069 8071
 
 # Set the default config file
 ENV ODOO_RC /etc/odoo/odoo.conf
+
+# Set default user when running the container
+USER odoo
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["odoo"]
