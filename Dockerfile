@@ -51,6 +51,7 @@ COPY ./entrypoint.sh /
 
 RUN set -x; \
         mkdir -p /opt/local/odoo \
+        && mkdir -p /opt/local/odoo/.local/share \
         && useradd odoo -d /opt/local/odoo -p odoo \
         && chown -R odoo:odoo /opt/local/odoo
 
