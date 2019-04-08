@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:jessie
 MAINTAINER Niboo SPRL <info@niboo.be>
 
 # Install some deps, lessc and less-plugin-clean-css, and wkhtmltopdf
