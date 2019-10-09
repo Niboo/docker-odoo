@@ -19,9 +19,9 @@ RUN set -x; \
             python3-dateutil \
             python3-psutil \
             git \
-            python3-def \
+            python3-dev \
             postgresql \
-            postgresql-contrib python3-psycopg2 libpq-dev \
+            postgresql-contrib python3-psycopg2 libpq-dev
         && pip3 install openpyxl  \
         && pip3 install --upgrade six \
         && pip3 install PyPDF2 \
