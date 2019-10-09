@@ -43,6 +43,7 @@ RUN set -x; \
         && pip3 install num2words \
         && pip3 install xlwt \
         && pip3 install polib \
+        && pip3 install num2words xlwt python-stdnum \
         && curl -o wkhtmltox.deb -SL https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb \
         && apt install -y ./wkhtmltox.deb \
         && rm wkhtmltox.deb
