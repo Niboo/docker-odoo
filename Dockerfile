@@ -44,7 +44,7 @@ RUN set -x; \
         && rm wkhtmltox.deb
 
 # Install Odoo
-ENV ODOO_ORIGINAL_TAG "v12.0.2.0"
+ENV ODOO_ORIGINAL_TAG "v13.0.0.0"
 
 RUN set -x; \
         mkdir -p /opt/local/odoo \
