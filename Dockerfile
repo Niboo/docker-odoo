@@ -1,19 +1,20 @@
-FROM debian:stretch
-MAINTAINER Niboo SPRL <info@niboo.be>
+FROM debian:buster
+MAINTAINER Niboo SPRL <info@niboo.com>
 
 # Install some deps, lessc and less-plugin-clean-css, and wkhtmltopdf
 
 RUN set -x; \
-        apt-get update \
-        && apt-get update --fix-missing \
-        && apt-get install -y --no-install-recommends \
+        apt-get update --fix-missing \
+        && apt-get upgrade -fy \
+        && apt-get install -fy --no-install-recommends \
             ca-certificates \
             curl \
             node-less \
             python3-pip \
             python3-setuptools \
             python3-renderpm \
-            libssl1.0-dev \
+            libssl1.1 \
+            libssl-dev \
             xz-utils \
             python3-watchdog \
             python3-dateutil \
@@ -22,6 +23,7 @@ RUN set -x; \
             python3-dev \
             postgresql \
             postgresql-contrib python3-psycopg2 libpq-dev \
+        && apt-get install -fy wkhtmltopdf \
         && pip3 install openpyxl  \
         && pip3 install --upgrade six \
         && pip3 install PyPDF2 \
@@ -45,11 +47,7 @@ RUN set -x; \
         && pip3 install polib \
         && pip3 install num2words xlwt python-stdnum \
         && pip3 install zeep \
-        && pip3 install XlsxWriter \
-
-        && curl -o wkhtmltox.deb -SL https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb \
-        && apt install -y ./wkhtmltox.deb \
-        && rm wkhtmltox.deb
+        && pip3 install XlsxWriter
 
 # Install Odoo
 ENV ODOO_ORIGINAL_TAG "v13.0.0.0"
@@ -76,3 +74,4 @@ USER odoo
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["odoo"]
+
