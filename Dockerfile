@@ -23,7 +23,6 @@ RUN set -x; \
             python3-dev \
             postgresql \
             postgresql-contrib python3-psycopg2 libpq-dev \
-        && apt-get install -fy wkhtmltopdf \
         && pip3 install openpyxl  \
         && pip3 install --upgrade six \
         && pip3 install PyPDF2 \
@@ -47,7 +46,12 @@ RUN set -x; \
         && pip3 install polib \
         && pip3 install num2words xlwt python-stdnum \
         && pip3 install zeep \
-        && pip3 install XlsxWriter
+        && pip3 install XlsxWriter \
+        && curl -o wkhtmltox.deb -SL https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.buster_amd64.deb \
+        && apt install -y ./wkhtmltox.deb \
+        && rm wkhtmltox.deb
+
+
 
 # Install Odoo
 ENV ODOO_ORIGINAL_TAG "v13.0.0.0"
