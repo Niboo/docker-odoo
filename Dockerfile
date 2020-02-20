@@ -1,40 +1,54 @@
-FROM debian:stretch
-MAINTAINER Niboo SPRL <info@niboo.be>
+FROM debian:buster
+MAINTAINER Niboo SPRL <info@niboo.com>
 
 # Install some deps, lessc and less-plugin-clean-css, and wkhtmltopdf
 RUN set -x; \
         apt-get update \
         && apt-get update --fix-missing \
         && apt-get install -y --no-install-recommends \
+            build-essential \
             ca-certificates \
             curl \
-            node-less \
-            ssh-client \
-            postgresql-client \
-            python3-pip \
-            python3-setuptools \
-            python3-dev \
-            build-essential \
+            lcov \
+            ldap-utils \
+            libssl1.1 \
+            libssl-dev \
             libffi-dev \
-            libsasl2-dev \
             libldap2-dev \
+            libxml2-dev \
+            libxslt1-dev \
+            libsasl2-dev \
+            libpq-dev \
+            node-less \
+            postgresql \
+            postgresql-contrib \
+            python3 \
+            python2.7-dev \
+            python3-dateutil \
+            python3-dev \
             python3-lxml \
-            libssl1.0-dev \
+            python3-pip \
+            python3-psutil \
+            python3-psycopg2 \
+            python3-renderpm \
+            python3-setuptools \
+            python3-watchdog \
+            # slapd \
+            valgrind \
             xz-utils \
+            zlib1g \
+            zlib1g-dev \
             git \
-        && curl -o wkhtmltox.tar.xz -SL https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz \
-        && echo '3f923f425d345940089e44c1466f6408b9619562 wkhtmltox.tar.xz' | sha1sum -c - \
-        && tar xvf wkhtmltox.tar.xz \
-        && cp wkhtmltox/lib/* /usr/local/lib/ \
-        && cp wkhtmltox/bin/* /usr/local/bin/ \
-        && cp -r wkhtmltox/share/man/man1 /usr/local/share/man/ \
+        && curl -o wkhtmltox.deb -SL https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.buster_amd64.deb \
+        && apt install -y ./wkhtmltox.deb \
+        && rm wkhtmltox.deb \
         && pip3 install werkzeug==0.11.11 \
         Babel==2.3.4 \
         decorator==4.0.10 \
         docutils==0.12 \
         feedparser==5.2.1 \
-        gevent==1.1.2 \
-        greenlet==0.4.10 \
+        gevent==1.4.0 \
+        greenlet==0.4.15 \
         html2text==2016.9.19 \
         Jinja2==2.8 \
         Mako==1.0.4 \
@@ -43,12 +57,12 @@ RUN set -x; \
         num2words==0.5.4 \
         ofxparse==0.16 \
         passlib==1.6.5 \
-        Pillow==3.4.1 \
+        Pillow==7.0.0 \
         psutil==4.3.1 \
         psycogreen==1.0 \
         psycopg2==2.7.1 \
         pydot==1.2.3 \
-        pyldap==2.4.28 \
+        pyldap==3.0.0.post1 \
         pyparsing==2.1.10 \
         PyPDF2==1.26.0 \
         pyserial==3.1.1 \
@@ -93,3 +107,4 @@ USER odoo
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["odoo"]
+
