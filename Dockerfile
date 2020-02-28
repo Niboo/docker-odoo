@@ -95,6 +95,7 @@ RUN set -x; \
 
 # Copy entrypoint script and Odoo configuration file
 COPY ./entrypoint.sh /
+COPY ./openssl.cnf /etc/ssl/
 
 # Expose Odoo services
 EXPOSE 8069 8071
