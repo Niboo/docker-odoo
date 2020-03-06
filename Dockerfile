@@ -28,7 +28,7 @@ RUN set -x; \
         && pip3 install PyPDF2 \
         && pip3 install passlib \
         && pip3 install babel \
-        && pip3 install werkzeug \
+        && pip3 install werkzeug==0.15.6 \
         && pip3 install lxml \
         && pip3 install decorator \
         && pip3 install psycopg2 \
